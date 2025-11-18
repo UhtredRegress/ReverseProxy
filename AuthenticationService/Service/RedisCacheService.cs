@@ -11,8 +11,7 @@ public class RedisCacheService : IRedisCacheService
     {
         _db = redis.GetDatabase();
     }
-
-
+    
     public async Task SetAsync(string key, Dictionary<string, string> value, TimeSpan ttl)
     {
         var json = JsonSerializer.Serialize(value);

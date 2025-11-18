@@ -24,10 +24,9 @@ public class RequestController : ControllerBase
     {
         _logger.LogInformation("Receive request redirection to scope {scope}", scope);
         var guid = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
-        var accessToken = HttpContext.Request.Headers["Authorization"].ToString().Substring("Bearer ".Length);
         try
         {
-            var uri = await _requestService.RequestRedirect(guid, accessToken, scope);
+            var uri = await _requestService.RequestRedirect(guid, scope);
             return Redirect(uri);
         }
         catch (ArgumentException ex)
@@ -41,6 +40,6 @@ public class RequestController : ControllerBase
         catch (Exception ex)
         {
             return StatusCode(StatusCodes.Status500InternalServerError, new { status = ex.Message });
-        }
+        }   
     }
 }

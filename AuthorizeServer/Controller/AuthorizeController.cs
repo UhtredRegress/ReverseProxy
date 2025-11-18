@@ -1,5 +1,4 @@
 using AuthorizeServer.Service.Interface;
-
 using Microsoft.AspNetCore.Mvc;
 
 

@@ -7,6 +7,5 @@ public class ClientAppDetail
     public string ClientSecret { get; set; }
     public ApplicationUser User { get; set; }
     public bool Purchased { get; set; }
-
     public ClientAppType Type { get; set; }
 }

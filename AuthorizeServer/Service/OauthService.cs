@@ -11,13 +11,11 @@ namespace AuthorizeServer.Service;
 
 public class OauthService : IOauthService
 {
-    private readonly HttpClient _client;
     private readonly IDatabase _redis;
     private readonly IConfiguration _configuration;
 
-    public OauthService(HttpClient client, IConnectionMultiplexer connectionMultiplexer, IConfiguration configuration)
+    public OauthService(IConnectionMultiplexer connectionMultiplexer, IConfiguration configuration)
     {
-        _client = client;
         _redis = connectionMultiplexer.GetDatabase();
         _configuration = configuration;
     }
